@@ -39,7 +39,6 @@ pacman::p_load(tidyverse, ggplot2, dplyr, lubridate, stringr, readxl, data.table
   contract.info = contract.info %>%
     filter(id_count==1) %>%
     select(-id_count)
-
  
 
 # Import enrollment data
@@ -61,18 +60,12 @@ pacman::p_load(tidyverse, ggplot2, dplyr, lubridate, stringr, readxl, data.table
     left_join(enroll.info, by=c("contractid", "planid")) %>%
     mutate(year=2015)
  
-## Fill in missing fips codes (by state and county)
+## Fill in missing information
   plan.data = plan.data %>%
     group_by(state, county) %>%
-    fill(fips)
-
-  ## Fill in missing plan characteristics by contract and plan id
-  plan.data = plan.data %>%
+    fill(fips) %>%
     group_by(contractid, planid) %>%
-    fill(plan_type, partd, snp, eghp, plan_name)
-  
-  ## Fill in missing contract characteristics by contractid
-  plan.data = plan.data %>%
+    fill(plan_type, partd, snp, eghp, plan_name) %>%
     group_by(contractid) %>%
     fill(org_type,org_name,org_marketing_name,parent_org)
 

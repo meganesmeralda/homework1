@@ -1,7 +1,16 @@
 ---
 title: "Homework 1"
 subtitle: "Research Methods, Spring 2025"
-author: Megan Zheng
+author: "Megan Zheng"
+header-includes:
+  - \usepackage{xcolor}
+  - \usepackage{float}
+  - \floatplacement{table}{H}
+  - \usepackage{titling}
+  - \pretitle{\begin{center}\LARGE\bfseries}
+  - \posttitle{\end{center}}
+  - \preauthor{\begin{center}\large\color{violet}}
+  - \postauthor{\end{center}}
 format:
   pdf:
     output-file: "zheng-m-hwk1-2"
@@ -31,7 +40,7 @@ load("Hw1_workspace.Rdata")
 ```
 
 
-My answers to the homework questions are described below. Note that I do the analysis for these answers in a separate `R` script. You can read in the full data as part of your markdown file, but that takes some time to compile to pdf. So I run the analysis separately, save the workspace with only the summary stats, figures, and tables that I need, and then load the workspace in the final qmd. My analysis file is available in the analysis folder. The GitHub repository for this work is available [here](https://github.com/imccart/homework1.git). Enjoy!
+My answers to the homework questions are in the following file. Note that I do the analysis for these answers in a separate `R` script. This document will be analyzing data from January 2015 collected by Medicare Advantage, direct access to the data files can be found on their website, [here](https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-advantagepart-d-contract-and-enrollment-data). You can read in the full data as part of your markdown file, but that takes some time to compile to pdf. So I run the analysis separately, save the workspace with only the summary stats, figures, and tables that I need, and then load the workspace in the final qmd. The refinig of the data can be dound in the data-code folder, and my analysis file is available in the analysis folder. The GitHub repository for this work is available [here](https://github.com/meganesmeralda/homework1). Enjoy!
 
 
 \newpage
