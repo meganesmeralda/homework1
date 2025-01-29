@@ -11,14 +11,11 @@ plan.type.table = full.ma.data %>% group_by(plan_type) %>% count() %>% arrange(-
 tot.obs = as.numeric(count(full.ma.data %>% ungroup()))
 plan.type.year1 = full.ma.data %>% group_by(plan_type) %>% count() %>% arrange(-n) %>% filter(plan_type!="NA")
 
-### WHAT IS SNP AGAIN..?
 final.plans = full.ma.data %>%
     filter(snp == "No" & eghp == "No" &
       (planid < 800 | planid >=900))
 plan.type.year2 = final.plans %>% group_by(plan_type) %>% count() %>% arrange(-n)
 plan.type.enroll = final.plans %>% group_by(plan_type) %>% summarize(n=n(), enrollment=mean(enrollment, na.rm=True)) %>% 
-
-
 
 rm(list=c("full.ma.data", "contract.service.area", "final.data"))
 save.image("submission1/Hw1_workspace.Rdata")
