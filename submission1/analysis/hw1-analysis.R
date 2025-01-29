@@ -1,0 +1,6 @@
+## Provide a table of count plans under each plan type. 
+plan_type_count <- plan.data %>%
+  group_by(plan_type) %>%
+  summarize(plan_count = n(), .groups = "drop")
+
+  print(plan_type_count)
